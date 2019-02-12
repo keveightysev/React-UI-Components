@@ -8,17 +8,36 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      int: 0,
-      current: ''
+      clicked: false,
+      current: [],
+      stored: [],
+      total: 0
     }
   }
 
   clickHandler = (num) => {
     this.setState((state) => ({
+      clicked: true,
       current: state.current += num
     }));
-    console.log(this.state.current);
+
+    console.log(this.state.stored);
   }
+
+  operatorHandler = (op) => {
+    this.setState((state) => ({
+      stored: [...this.state.stored, Number(state.current), op],
+      current: []
+    }))
+  }
+
+  // equalsHandler = () => {
+  //   const value = this.state.stored;
+  //   let total = 0;
+  //   this.setState(() => ({
+  //     current: value
+  //   }))
+  // }
 
   render() {
     return (
@@ -39,11 +58,11 @@ class App extends React.Component {
         <NumberButton buttonStyle="large-button" text="0" action={() => this.clickHandler(0)} />
       </div>
       <div className="operators">
-        <ActionButton buttonStyle="small-button" text="&#247;" />
-        <ActionButton buttonStyle="small-button" text="&#215;" />
-        <ActionButton buttonStyle="small-button" text="&#8722;" />
-        <ActionButton buttonStyle="small-button" text="&#43;" />
-        <ActionButton buttonStyle="small-button" text="&#61;" />
+        <ActionButton buttonStyle="small-button" text="&#247;" action={() => this.operatorHandler('/')} />
+        <ActionButton buttonStyle="small-button" text="&#215;" action={() => this.operatorHandler('*')} />
+        <ActionButton buttonStyle="small-button" text="&#8722;" action={() => this.operatorHandler('-')} />
+        <ActionButton buttonStyle="small-button" text="&#43;" action={() => this.operatorHandler('+')} />
+        <ActionButton buttonStyle="small-button" text="&#61;" /* action={() => this.equalsHandler()}*/ />
       </div>
       </div>
     </div>
