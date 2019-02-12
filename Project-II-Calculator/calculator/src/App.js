@@ -7,26 +7,36 @@ import ActionButton from './components/ButtonComponents/ActionButton';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {number: 0}
+    this.state = {
+      int: 0,
+      current: ''
+    }
+  }
+
+  clickHandler = (num) => {
+    this.setState((state) => ({
+      current: state.current += num
+    }));
+    console.log(this.state.current);
   }
 
   render() {
     return (
       <div className="calculator">
-      <Display number={this.state.number} />
+      <Display display={this.state.current} />
       <div className="buttons">
       <div className="number-buttons">
         <ActionButton buttonStyle="large-button" text="clear" />
-        <NumberButton buttonStyle="small-number-button" text="7" />
-        <NumberButton buttonStyle="small-number-button" text="8" />
-        <NumberButton buttonStyle="small-number-button" text="9" />
-        <NumberButton buttonStyle="small-number-button" text="4" />
-        <NumberButton buttonStyle="small-number-button" text="5" />
-        <NumberButton buttonStyle="small-number-button" text="6" />
-        <NumberButton buttonStyle="small-number-button" text="1" />
-        <NumberButton buttonStyle="small-number-button" text="2" />
-        <NumberButton buttonStyle="small-number-button" text="3" />
-        <NumberButton buttonStyle="large-button" text="0" />
+        <NumberButton buttonStyle="small-number-button" text="7" action={() => this.clickHandler(7)} />
+        <NumberButton buttonStyle="small-number-button" text="8" action={() => this.clickHandler(8)} />
+        <NumberButton buttonStyle="small-number-button" text="9" action={() => this.clickHandler(9)} />
+        <NumberButton buttonStyle="small-number-button" text="4" action={() => this.clickHandler(4)} />
+        <NumberButton buttonStyle="small-number-button" text="5" action={() => this.clickHandler(5)} />
+        <NumberButton buttonStyle="small-number-button" text="6" action={() => this.clickHandler(6)} />
+        <NumberButton buttonStyle="small-number-button" text="1" action={() => this.clickHandler(1)} />
+        <NumberButton buttonStyle="small-number-button" text="2" action={() => this.clickHandler(2)} />
+        <NumberButton buttonStyle="small-number-button" text="3" action={() => this.clickHandler(3)} />
+        <NumberButton buttonStyle="large-button" text="0" action={() => this.clickHandler(0)} />
       </div>
       <div className="operators">
         <ActionButton buttonStyle="small-button" text="&#247;" />
