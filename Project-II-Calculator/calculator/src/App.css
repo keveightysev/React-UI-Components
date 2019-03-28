@@ -1,0 +1,21 @@
+.calculator {
+    width: 456px;
+    margin: 50px auto;
+    border: 1px solid #999;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.buttons {
+    display: flex;
+}
+
+.number-buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.operators {
+    display: flex;
+    flex-direction: column;
+}
