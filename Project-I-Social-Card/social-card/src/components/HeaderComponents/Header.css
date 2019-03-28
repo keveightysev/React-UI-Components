@@ -1,1 +1,50 @@
 /* All styles for your header Components live here */
+.header-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.thumbnail {
+    width: 48px;
+    height: 48px;
+    background-color: #a0001e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px 9px 8px 20px;
+}
+
+.thumbnail-image {
+    width: 55%;
+    filter: grayscale(100%) invert(100%) brightness(10);
+}
+
+
+
+.header-title {
+    display: flex;
+    align-items: baseline;
+}
+
+.header-title h1 {
+    font-size: .9rem;
+    margin: 8px 0 8px;
+}
+
+.header-title h2 {
+    margin: 0 5px;
+    font-size: .7rem;
+    color: darkgray;
+    font-weight: 300;
+}
+
+.header-content {
+    font-size: .9rem;
+    line-height: 1.5;
+}
+
+.header-content p {
+    margin: 0 0 10px;
+}
